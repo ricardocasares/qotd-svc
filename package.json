@@ -15,7 +15,7 @@
     "test:ci": "jest --ci",
     "tdd": "jest --watch",
     "watch": "nodemon -w dist --exec \"npm start\"",
-    "cmt": "npx git-cz",
+    "commit": "npx git-cz",
     "format": "prettier --write **/*.ts"
   },
   "jest": {
