@@ -1,23 +1,15 @@
-sudo: required
+sudo: false
 
-services:
-  - docker
-
-language: node_js
-
-node_js:
-  - "node"
-
-install:
-  - npm ci
-
-script:
-  - npm run test
-
-after_success:
-  - docker login -u $DOCKER_USER -p $DOCKER_PASS
-  - export DOCKER_REPO=analogical/qotd-svc
-  - export TAG=latest
-  - docker build -t $DOCKER_REPO .
-  - docker tag $TAG
-  - docker push $DOCKER_REPO
+jobs:
+  include:
+    - stage: build
+      script:
+        - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+        - export DOCKER_REPO=analogical/qotd-svc
+        - export TAG=latest
+        - docker build -t $DOCKER_REPO .
+    - stage: deploy
+        script:
+          - docker tag $TAG
+          - docker push $DOCKER_REPO
+        if: branch = master
