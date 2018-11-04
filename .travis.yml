@@ -4,6 +4,10 @@ services:
   - docker
 before_install:
   - docker build -t analogical/qotd-svc .
+install:
+  - echo "Nothing to install"
+script:
+  - echo "Nothing to run here"
 deploy:
   provider: script
   script:
