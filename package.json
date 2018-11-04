@@ -1,0 +1,44 @@
+{
+  "name": "qotd-svc",
+  "version": "0.0.1",
+  "description": "Service for QOTD",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "npm run watch & npm run tscw & npm run tdd",
+    "tscw": "tsc -w",
+    "build": "tsc",
+    "start": "micro",
+    "test": "jest",
+    "test:ci": "jest --ci",
+    "tdd": "jest --watch",
+    "watch": "nodemon -w dist --exec \"npm start\""
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ]
+  },
+  "keywords": [],
+  "author": "Ricardo Casares <ricardocasares@gmail.com> (http://analogic.al/)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^23.3.9",
+    "@types/micro": "^7.3.3",
+    "@types/node": "^10.12.2",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.5",
+    "ts-jest": "^23.10.4",
+    "typescript": "^3.1.6"
+  },
+  "dependencies": {
+    "micro": "^9.3.3"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "qotd-svc",
+  "type": "docker",
+  "features": {
+    "cloud": "v2"
+  },
+  "alias": "qotd-svc.analogic.al"
+}
