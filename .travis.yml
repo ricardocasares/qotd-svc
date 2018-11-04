@@ -3,11 +3,12 @@ sudo: false
 jobs:
   include:
     - stage: build
-      script: export DOCKER_REPO=analogical/qotd-svc
-    - script: export TAG=latest
-    - script: docker build -t $DOCKER_REPO .
+      script:
+        - docker build -t analogical/qotd-svc .
     - stage: deploy
       if: branch = master
-      script: echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-    - script: docker tag $TAG
-    - script: docker push $DOCKER_REPO
+      script:
+        - export TAG=latest
+        - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+        - docker tag $TAG
+        - docker push analogical/qotd-svc
