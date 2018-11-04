@@ -1,6 +1,6 @@
 {
   "name": "qotd-svc",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Service for QOTD",
   "main": "dist/index.js",
   "scripts": {
