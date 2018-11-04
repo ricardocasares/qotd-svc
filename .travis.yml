@@ -5,12 +5,14 @@ services:
 
 language: node_js
 
+node_js:
+  - "node"
+
 install:
   - npm ci
 
 script:
   - npm run test
-  - npm run build
 
 after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
