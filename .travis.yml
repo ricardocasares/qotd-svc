@@ -2,14 +2,20 @@ sudo: required
 
 services:
   - docker
-before_install:
-  - docker build -t analogical/qotd-svc .
+
+language: node_js
+
 install:
-  - echo "Nothing to install"
+  - npm ci
+
 script:
-  - echo "Nothing to run here"
-deploy:
-  provider: script
-  script:
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - docker push analogical/qotd-svc
+  - npm run test
+  - npm run build
+
+after_success:
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - export DOCKER_REPO=analogical/qotd-svc
+  - export TAG=latest
+  - docker build -t $DOCKER_REPO .
+  - docker tag $TAG
+  - docker push $DOCKER_REPO
