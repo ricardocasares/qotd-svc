@@ -6,6 +6,7 @@ This is the service part for the QOTD CI CD example
 
 - [x] Create service
 - [x] Create Dockerfile
+- [ ] Automate builds on `travis`
 - [ ] Automate releases on `github`
 - [ ] Automate releases on `dockerhub`
 - [ ] Automate deployments on `now`
