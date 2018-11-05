@@ -16,13 +16,7 @@
     "tdd": "jest --watch",
     "watch": "nodemon -w dist --exec \"npm start\"",
     "commit": "npx git-cz",
-    "format": "prettier --write **/*.ts",
-    "docker:tag": "docker tag $TRAVIS_REPO_SLUG:$TRAVIS_COMMIT $TRAVIS_REPO_SLUG:latest",
-    "docker:push": "docker push $TRAVIS_REPO_SLUG",
-    "docker:pull": "docker pull $TRAVIS_REPO_SLUG:$TRAVIS_COMMIT",
-    "docker:login": "docker login -u $DOCKER_USER -p $DOCKER_PASS",
-    "docker:build": "docker build -t $TRAVIS_REPO_SLUG:$TRAVIS_COMMIT .",
-    "docker:deploy": "run-s docker:tag docker:push"
+    "format": "prettier --write **/*.ts"
   },
   "jest": {
     "roots": [
