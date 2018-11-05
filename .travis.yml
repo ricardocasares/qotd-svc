@@ -5,6 +5,9 @@ jobs:
   include:
     - stage: build
       script:
-        - make login
-        - make build
-        - make push
+        - npm run docker:login
+        - npm run docker:build
+        - npm run docker:push
+      deploy:
+        provider: script
+        script: npm run docker:tag
