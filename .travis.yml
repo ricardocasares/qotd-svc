@@ -21,4 +21,4 @@ jobs:
         - bash .scripts/now.deploy.sh
     - stage: now alias
       script:
-        - bash .scripts/now.deploy.sh
+        - bash .scripts/now.alias.sh
