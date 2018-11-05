@@ -7,7 +7,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "npm run watch & npm run tscw & npm run tdd",
+    "dev": "run-p watch tscw tdd",
     "tscw": "tsc -w",
     "build": "tsc",
     "start": "micro",
@@ -22,7 +22,7 @@
     "docker:pull": "docker pull $TRAVIS_REPO_SLUG:$TRAVIS_COMMIT",
     "docker:login": "docker login -u $DOCKER_USER -p $DOCKER_PASS",
     "docker:build": "docker build -t $TRAVIS_REPO_SLUG:$TRAVIS_COMMIT .",
-    "docker:deploy": "npm run docker:pull && npm run docker:tag && npm run docker:push"
+    "docker:deploy": "run-s docker:login docker:pull docker:tag docker:push"
   },
   "jest": {
     "roots": [
@@ -57,6 +57,7 @@
     "jest": "^23.6.0",
     "lint-staged": "^8.0.4",
     "nodemon": "^1.18.5",
+    "npm-run-all": "^4.1.3",
     "prettier": "^1.14.3",
     "ts-jest": "^23.10.4",
     "typescript": "^3.1.6"

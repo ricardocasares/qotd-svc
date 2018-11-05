@@ -1,9 +1,5 @@
 services:
   - docker
-stages:
-  - build
-  - stage: deploy
-    if: branch = master
 jobs:
   include:
     - stage: build
