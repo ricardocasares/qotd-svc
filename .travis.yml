@@ -1,15 +1,10 @@
-sudo: false
 services:
   - docker
+
 jobs:
   include:
     - stage: build
+      if: branch != master
       script:
         - docker build -t analogical/qotd-svc .
-    - stage: deploy
-      if: branch = master
-      script:
-        - export TAG=latest
-        - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-        - docker tag $TAG
         - docker push analogical/qotd-svc
