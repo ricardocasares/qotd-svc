@@ -10,4 +10,6 @@ jobs:
         - npm run docker:push
       deploy:
         provider: script
-        script: npm run docker:tag
+        script:
+          - npm run docker:tag
+          - npm run docker:push
