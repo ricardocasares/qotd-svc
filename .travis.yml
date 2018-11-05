@@ -1,6 +1,9 @@
 services:
   - docker
-
+stages:
+  - build
+  - stage: deploy
+    if: branch = master
 jobs:
   include:
     - stage: build
@@ -8,7 +11,7 @@ jobs:
         - npm run docker:login
         - npm run docker:build
         - npm run docker:push
-    - stage: deploy
+    - stage: tag docker image
       script: skip
       deploy:
         provider: script
