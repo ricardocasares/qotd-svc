@@ -9,6 +9,7 @@ jobs:
         - npm run docker:build
         - npm run docker:push
       deploy:
+        skip_cleanup: true
         provider: script
         script:
           - npm run docker:tag
