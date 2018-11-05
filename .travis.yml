@@ -1,10 +1,24 @@
+language: node_js
+node_js:
+  - "node"
 services:
   - docker
+stages:
+  - build
+  - tag docker as latest
+  - now deploy
+  - now alias
 jobs:
   include:
     - stage: build
       script:
         - bash .scripts/docker.build.sh
-    - stage: deploy
+    - stage: tag docker as latest
       script:
         - bash .scripts/docker.deploy.sh
+    - stage: now deploy
+      script:
+        - bash .scripts/now.deploy.sh
+    - stage: now alias
+      script:
+        - bash .scripts/now.deploy.sh
