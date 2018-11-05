@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-now -t $NOW_TOKEN
+npx now -t $NOW_TOKEN

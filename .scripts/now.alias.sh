@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-now alias -t $NOW_TOKEN
+npx now alias -t $NOW_TOKEN
