@@ -5,9 +5,11 @@ services:
   - docker
 stages:
   - build
-  - tag docker as latest
+  - name: tag docker as latest
+    if: branch = master
   - now deploy
-  - now alias
+  - name: now alias
+    if: branch = master
 jobs:
   include:
     - stage: build
