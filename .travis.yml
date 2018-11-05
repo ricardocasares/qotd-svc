@@ -4,7 +4,6 @@ services:
 jobs:
   include:
     - stage: build
-      if: branch != master
       script:
         - docker build -t analogical/qotd-svc .
         - docker push analogical/qotd-svc
