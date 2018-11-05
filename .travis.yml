@@ -9,7 +9,7 @@ jobs:
         - npm run docker:build
         - npm run docker:push
     - stage: deploy
-        script: skip
-        deploy:
-          provider: script
-          script: npm run docker:deploy
+      script: skip
+      deploy:
+        provider: script
+        script: npm run docker:deploy
