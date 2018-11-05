@@ -22,7 +22,7 @@
     "docker:pull": "docker pull $TRAVIS_REPO_SLUG:$TRAVIS_COMMIT",
     "docker:login": "docker login -u $DOCKER_USER -p $DOCKER_PASS",
     "docker:build": "docker build -t $TRAVIS_REPO_SLUG:$TRAVIS_COMMIT .",
-    "docker:deploy": "run-s docker:login docker:pull docker:tag docker:push"
+    "docker:deploy": "run-s docker:tag docker:push"
   },
   "jest": {
     "roots": [

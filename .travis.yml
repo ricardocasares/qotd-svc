@@ -7,8 +7,6 @@ jobs:
         - npm run docker:login
         - npm run docker:build
         - npm run docker:push
-    - stage: tag docker image
-      script: skip
       deploy:
         provider: script
         script: npm run docker:deploy
